@@ -1,0 +1,92 @@
+.cookie-notice {
+  position: fixed;
+  z-index: 999;
+  inset-inline-end: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  width: min(25rem, calc(100% - 2.5rem));
+  max-height: min(35rem, 65dvh);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: clamp(1rem, 4vw, 1.4rem);
+  background: var(--ivory);
+  border: 1px solid #dfd1c0;
+  border-top: 2px solid var(--gold);
+  box-shadow: var(--shadow);
+}
+
+.cookie-notice-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cookie-notice-icon {
+  display: grid;
+  flex: 0 0 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  background: var(--ivory-deep);
+  color: #805c32;
+}
+
+.cookie-notice-heading h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 5vw, 1.9rem);
+  line-height: 1.05;
+}
+
+.cookie-notice p,
+.cookie-notice dd {
+  color: var(--text-mid);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.cookie-notice-details {
+  margin-block: 0.85rem 1rem;
+  padding-inline: 0.75rem;
+  background: var(--ivory-mid);
+  border: 1px solid var(--ivory-deep);
+}
+
+.cookie-notice-details summary {
+  padding-block: 0.6rem;
+  color: #805c32;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookie-notice-details dl {
+  padding-block: 0.15rem 0.75rem;
+}
+
+.cookie-notice-details dt {
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.cookie-notice-details dd + dt {
+  margin-top: 0.5rem;
+}
+
+.cookie-notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.cookie-notice-actions a {
+  color: var(--text-mid);
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cookie-notice-actions .btn {
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+}
