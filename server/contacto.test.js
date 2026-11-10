@@ -5,6 +5,7 @@ import { handleContacto } from './contacto.js';
 const origin = 'https://christinefernandes.pt';
 const valid = {
   tipo: 'orcamento',
+  aceitouTermos: true,
   nome: 'Pessoa de teste',
   email: 'teste@example.com',
   telefone: '+351 912 345 678',
@@ -48,6 +49,7 @@ test('rejeita método, origem, dados inválidos e pedidos demasiado grandes', as
     [request({ ...valid, email: 'teste@example.com\r\nCc: x@example.com' }), 400],
     [request({ ...valid, tipo: 'formacao' }), 400],
     [request({ ...valid, _hp_check: 'bot' }), 400],
+    [request({ ...valid, aceitouTermos: false }), 400],
     [request({ ...valid, mensagem: 'x'.repeat(20_000) }), 413],
   ];
   for (const [req, status] of cases) {

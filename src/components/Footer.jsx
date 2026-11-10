@@ -66,7 +66,6 @@ export default function Footer() {
           <ul>
             <li><Link to="/privacidade">Política de Privacidade</Link></li>
             <li><Link to="/termos">Termos e Condições</Link></li>
-            <li><a href="https://www.livroreclamacoes.pt/">Livro de Reclamações</a></li>
             <li><Link to="/faq">Perguntas frequentes</Link></li>
             <li>
               <Link to="/privacidade#cookies">Cookies</Link>

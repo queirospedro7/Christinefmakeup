@@ -4,7 +4,7 @@ Site em português de Portugal com React, Vite e páginas geradas em HTML no bui
 
 ## Desenvolvimento
 
-Requer Node.js 24. Executa `npm ci`, `npm run dev` e abre o endereço mostrado no terminal. A API local usa a mesma validação da API de produção. Por defeito, os pedidos seguem por email direto ou WhatsApp. Para ativar os formulários, define VITE_CONTACT_FORMS=true e configura o SMTP.
+Requer Node.js 24. Executa `npm ci`, `npm run dev` e abre o endereço mostrado no terminal. A API local usa a mesma validação da API de produção. Por defeito, os formulários ficam visíveis para demonstração e o envio está desativado. O contacto pode ser feito por email direto ou WhatsApp. Para ativar os formulários, define VITE_CONTACT_FORMS=true e configura o SMTP.
 
 - `npm test` verifica a validação e os casos de sucesso e erro com um transporte simulado.
 - `npm run build` gera o HTML, o sitemap, a página 404 e os recursos em `dist/`.

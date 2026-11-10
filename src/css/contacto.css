@@ -518,3 +518,24 @@
 }
 
 .form-privacy-note { color: var(--text-mid); font-size: 0.85rem; line-height: 1.5; }
+
+.form-terms .rgpd-custom-checkbox {
+  align-items: center;
+}
+
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.custom-select-option {
+  width: 100%;
+  background: var(--ivory);
+  border: 0;
+  text-align: start;
+}
+
+.custom-select-option:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}

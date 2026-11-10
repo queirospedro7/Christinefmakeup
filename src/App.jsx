@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import PageMeta from './components/PageMeta';
+import CookieNotice from './components/CookieNotice';
 
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
@@ -42,6 +43,7 @@ export default function App() {
       <Footer />
 
       <BackToTop />
+      <CookieNotice />
 
     </>
   );

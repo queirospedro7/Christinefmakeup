@@ -45,7 +45,7 @@ async function readJson(request) {
 
 function validate(data) {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return null;
-  if (data._hp_check || !['orcamento', 'formacao'].includes(data.tipo)) return null;
+  if (data.aceitouTermos !== true || data._hp_check || !['orcamento', 'formacao'].includes(data.tipo)) return null;
   const values = {};
   for (const [key, [, maxLength]] of Object.entries(fields)) {
     const value = data[key] ?? '';

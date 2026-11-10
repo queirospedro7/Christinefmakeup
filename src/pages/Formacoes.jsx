@@ -1,8 +1,9 @@
-import { business, contactFormsEnabled } from '../data/business';
+import { contactFormsEnabled } from '../data/business';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 import CustomSelect from '../components/CustomSelect';
+import FormTerms from '../components/FormTerms';
 import { sendLeadEmail } from '../utils/submitLead';
 
 export default function Formacoes() {
@@ -26,6 +27,7 @@ export default function Formacoes() {
     comoChegou: '',
     mensagem: '',
 
+    aceitouTermos: false,
     _hp_check: ''
   });
 
@@ -49,7 +51,7 @@ export default function Formacoes() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (inFlight.current) return;
+    if (!contactFormsEnabled || !formData.aceitouTermos || inFlight.current) return;
 
     const errors = {};
     if (!formData.nome.trim()) errors.nome = 'Indica o teu nome completo.';
@@ -338,16 +340,7 @@ export default function Formacoes() {
           </div>
 
           <div className="contact-form-col reveal-right">
-            {!contactFormsEnabled ? (
-              <div className="contact-form">
-                <div className="form-header">
-                  <p className="eyebrow">Contacto direto</p>
-                  <h3>Envia-nos <em>uma mensagem</em></h3>
-                  <p className="form-subtitle">Conta-nos o que procuras e respondemos assim que possível.</p>
-                </div>
-                <a className="btn btn-dark" href={`mailto:${business.email}`}>Enviar email</a>
-              </div>
-            ) : !submitted ? (
+            {!submitted ? (
               <form className="contact-form" id="formacoesForm" onSubmit={handleSubmit} noValidate>
                 <div className="form-header">
                   <p className="eyebrow">Formulário</p>
@@ -514,11 +507,9 @@ export default function Formacoes() {
                   ></textarea>
                 </div>
 
-                <p className="form-privacy-note">
-                  Usamos os teus dados para responder a este pedido. Consulta a <Link to="/privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</Link>.
-                </p>
+                <FormTerms id="formacoes-termos" checked={formData.aceitouTermos} onChange={handleChange} />
 
-                <button type="submit" className="btn-submit" id="formacoesSubmitBtn" disabled={submitting}>
+                <button type={contactFormsEnabled ? 'submit' : 'button'} className="btn-submit" id="formacoesSubmitBtn" disabled={submitting || !formData.aceitouTermos}>
                   <span className="btn-submit-text">
                     {submitting ? 'A enviar pedido...' : 'Enviar Pedido de Informação'}
                   </span>
@@ -557,7 +548,8 @@ export default function Formacoes() {
                         comoChegou: '',
                         mensagem: '',
 
-                        _hp_check: ''
+                        aceitouTermos: false,
+    _hp_check: ''
                       });
                     }}
                     className="btn btn-outline-dark"

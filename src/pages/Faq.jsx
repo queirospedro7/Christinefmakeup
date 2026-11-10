@@ -259,17 +259,16 @@ export default function Faq() {
           })}
 
           <div className="faq-cta-box reveal-up">
-            <p className="eyebrow">Ainda tens dúvidas?</p>
-            <h2>Fala connosco <em>diretamente</em></h2>
-            <p>Se ainda tiveres dúvidas, podes enviar-nos uma mensagem.</p>
+            <p className="eyebrow">Contacto</p>
+            <h2>Ainda tens <em>dúvidas?</em></h2>
+            <p>Queres saber mais sobre um serviço ou confirmar uma data? Fala connosco.</p>
             <div className="faq-cta-actions">
-              <Link to="/contacto" className="btn btn-gold">Pedir Orçamento</Link>
+              <Link to="/contacto" className="btn btn-dark">Pedir orçamento</Link>
               <a
                 href="https://wa.me/351968427599"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline-white"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                className="btn btn-outline-dark"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.961.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.957-1.396A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.634 0-3.15-.494-4.417-1.343l-.316-.213-3.14.884.843-3.08-.234-.337A7.95 7.95 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
