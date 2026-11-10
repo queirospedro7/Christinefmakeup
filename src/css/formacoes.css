@@ -1,0 +1,149 @@
+/* ============================================================
+   CARD "EM BREVE" — Maquilhagem Profissional
+   Diferencia-se dos outros cards por:
+   - Fundo ivory-deep em vez de branco
+   - Padrão diagonal subtil em marca d'água (linhas douradas)
+   - Badge dourado "Em breve" em vez de cinzento
+   - Não está desativado — é totalmente interativo
+   O padrão é criado com repeating-linear-gradient no ::before.
+============================================================ */
+.formacao-brevemente {
+  background: var(--ivory-deep);
+  border-top: 1px solid rgba(160,120,64,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Padrão diagonal em marca d'água — linhas douradas muito subtis */
+.formacao-brevemente::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 18px,
+    rgba(160,120,64,0.04) 18px,  /* Linha dourada com 1px de espessura */
+    rgba(160,120,64,0.04) 19px
+  );
+  pointer-events: none; /* Não interfere com cliques */
+}
+
+/* Badge dourado (sobrepõe o estilo base do .sdc-badge) */
+.formacao-badge-soon {
+  background: var(--gold) !important;
+  color: var(--white) !important;
+  letter-spacing: 4px;
+}
+
+/* ============================================================
+   BANNER DE ESTÚDIO NAS FORMAÇÕES
+============================================================ */
+.formacoes-studio-banner {
+  background: var(--ivory);
+  padding: 40px 0 80px;
+}
+
+.fsb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid rgba(160, 120, 64, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(58, 46, 38, 0.04);
+}
+
+.fsb-img-wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.fsb-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  display: block;
+}
+
+.fsb-img-wrap:hover img {
+  filter: brightness(1.03);
+}
+
+.fsb-content {
+  padding: 48px 48px 48px 0;
+}
+
+.fsb-content .eyebrow {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.fsb-content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.fsb-content h2 em {
+  color: var(--gold);
+}
+
+.fsb-content p {
+  color: var(--text-mid);
+  font-size: 14.5px;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+
+.fsb-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fsb-feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.fsb-feat-icon {
+  color: var(--gold);
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.fsb-feat-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  margin-bottom: 2px;
+}
+
+.fsb-feat-item small {
+  display: block;
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .fsb-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .fsb-img-wrap {
+    min-height: 260px;
+    height: 260px;
+  }
+  .fsb-content {
+    padding: 32px 24px;
+  }
+}

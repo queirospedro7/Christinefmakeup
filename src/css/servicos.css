@@ -1,0 +1,520 @@
+/* ============================================================
+   1. CARDS DE SERVIÇO DETALHADOS
+============================================================ */
+.services-detail { background: var(--ivory); }
+
+#maquilhagem-noiva, #pacote-madrinhas, #ensaio, #penteado, #destination {
+  scroll-margin-top: 120px;
+}
+
+.service-detail-card {
+  background: var(--white);
+  border: none;
+  border-top: 1px solid rgba(160,120,64,0.15);
+  padding: 60px;
+  margin-bottom: 2px; /* Espaçamento mínimo entre cards */
+  position: relative;
+  transition: var(--transition);
+}
+
+.service-detail-card:hover { background: var(--ivory-mid); }
+
+/* Card em destaque (ex: "Mais Popular") */
+.service-detail-card.featured {
+  background: var(--gold-pale);
+  border-top-color: var(--gold);
+}
+
+/* Garantir que o texto do card featured mantém as cores corretas */
+.service-detail-card.featured .sdc-header h3 { color: var(--text); }
+.service-detail-card.featured .sdc-desc p   { color: var(--text-mid); }
+.service-detail-card.featured .sdc-includes h4 { color: var(--gold); }
+.service-detail-card.featured .sdc-includes li { color: var(--text-mid); }
+.service-detail-card.featured .sdc-price { color: var(--gold); }
+.service-detail-card.featured .sdc-icon  { color: var(--gold); }
+
+/* Badge "Mais Popular", "Em breve", etc. */
+.sdc-badge {
+  position: absolute;
+  top: 32px; right: 32px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 7px 18px;
+}
+
+/* Cabeçalho do card: ícone + título + preço */
+.sdc-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.sdc-icon {
+  font-size: 1.8rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.sdc-header h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.sdc-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Corpo do card: 2 colunas — descrição + lista de incluídos */
+.sdc-body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  margin-bottom: 40px;
+}
+
+.sdc-desc p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-mid);
+}
+
+.sdc-includes h4 {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.sdc-includes ul { display: flex; flex-direction: column; gap: 12px; }
+
+/* Cada item da lista tem uma borda dourada à esquerda */
+.sdc-includes li {
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 300;
+  padding-left: 4px;
+  border-left: 1px solid rgba(160,120,64,0.3);
+}
+
+
+/* ============================================================
+   2. PROCESSO EM 4 PASSOS
+============================================================ */
+.process-section { background: var(--ivory-mid); }
+
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 64px;
+}
+
+.process-step {
+  flex: 1;
+  padding: 0 36px;
+  text-align: center;
+  position: relative;
+}
+
+.process-step:first-child { padding-left: 0; }
+.process-step:last-child  { padding-right: 0; }
+
+/* Número grande decorativo (01, 02, 03, 04) */
+.step-num {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(160,120,64,0.25);
+  display: block;
+  margin-bottom: 18px;
+  line-height: 1;
+}
+
+.process-step h4 {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.process-step p { font-size: 13px; line-height: 1.8; color: var(--text-mid); }
+
+/* Seta decorativa entre passos (→) */
+.process-arrow {
+  font-size: 1.2rem;
+  color: rgba(160,120,64,0.3);
+  padding-top: 28px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   3.FAQ
+============================================================ */
+.faq-section { background: var(--ivory-deep); }
+.faq-section h2 { color: var(--text); }
+
+.faq-list {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item { border-bottom: 1px solid rgba(58,46,38,0.08); }
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-align: left;
+  transition: color 0.35s;
+}
+
+.faq-question:hover { color: var(--text); }
+
+/* O "+" que roda para "×" quando aberto */
+.faq-question span {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--gold);
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  flex-shrink: 0;
+  margin-left: 20px;
+  opacity: 0.6;
+}
+
+.faq-item.open .faq-question span { transform: rotate(45deg); opacity: 1; }
+.faq-item.open .faq-question { color: var(--text); }
+
+/* Animação de expansão via max-height fluída */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              transform 0.35s ease,
+              padding 0.35s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 800px;
+  opacity: 1;
+  transform: translateY(0);
+  padding-bottom: 32px;
+}
+
+.faq-answer p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-mid);
+}
+
+
+/* ============================================================
+   4. SERVIÇOS ADICIONAIS — LISTA EDITORIAL
+============================================================ */
+.adicional-section { background: var(--ivory); }
+
+/* Cabeçalho dividido: título à esquerda, descrição à direita */
+.adicional-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(160,120,64,0.15);
+}
+
+.adicional-header-desc {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.85;
+  font-weight: 300;
+  margin: 0;
+  padding-bottom: 6px;
+}
+
+.adicional-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cada linha da lista: container */
+.adicional-item {
+  border-bottom: 1px solid rgba(58,46,38,0.07);
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* Botão trigger (parte visível) */
+.adicional-item-trigger {
+  display: grid;
+  grid-template-columns: 56px 1px 1fr auto auto;
+  align-items: center;
+  gap: 36px;
+  padding: 32px 0;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* Fundo hover que se estende para fora do container */
+.adicional-item::before {
+  content: '';
+  position: absolute;
+  inset: 0 -60px;
+  background: var(--ivory-mid);
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: 0;
+}
+
+.adicional-item:hover::before { opacity: 1; }
+.adicional-item-trigger:hover { background: transparent; }
+/* Garantir que o conteúdo fica acima do fundo hover */
+.adicional-item > * { position: relative; z-index: 1; }
+
+/* Número decorativo (01, 02, ...) */
+.adicional-item-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(160,120,64,0.25);
+  line-height: 1;
+  transition: color 0.35s;
+  flex-shrink: 0;
+}
+
+.adicional-item:hover .adicional-item-num { color: var(--gold); }
+
+/* Linha vertical divisória entre número e conteúdo */
+.adicional-item-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(160,120,64,0.2);
+  flex-shrink: 0;
+}
+
+.adicional-item-main { flex: 1; }
+
+.adicional-item-main h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.2;
+  transition: color 0.3s;
+}
+
+.adicional-item-main h3 em { color: var(--gold); }
+
+.adicional-item-main p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Tags de categoria (ex: "Madrinhas", "Família") */
+.adicional-item-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 200px;
+}
+
+.adicional-item-tags span {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  border: 1px solid rgba(58,46,38,0.12);
+  padding: 4px 10px;
+  background: transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.adicional-item:hover .adicional-item-tags span {
+  border-color: rgba(160,120,64,0.3);
+  color: var(--gold);
+}
+
+/* Seta diagonal no hover */
+.adicional-item-arrow {
+  color: rgba(160,120,64,0.3);
+  flex-shrink: 0;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.adicional-item:hover .adicional-item-arrow {
+  color: var(--gold);
+  transform: translate(3px, -3px);
+}
+
+/* Seta roda quando aberto */
+.adicional-item.open .adicional-item-arrow {
+  transform: rotate(45deg);
+  color: var(--gold);
+}
+
+.adicional-item {
+  border-bottom: 1px solid rgba(58,46,38,0.07);
+  position: relative;
+  transition: background 0.3s;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Conteúdo expansível */
+.adicional-item-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              transform 0.35s ease;
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.adicional-item.open .adicional-item-content {
+  max-height: 800px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.adicional-item-details {
+  padding: 0 0 32px 92px;
+}
+
+.adicional-item-details p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+  max-width: 680px;
+}
+
+.adicional-item-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.adicional-item-details ul li {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mid);
+  padding-left: 4px;
+  border-left: 1px solid rgba(160,120,64,0.3);
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.adicional-price-note {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+  margin-top: 20px !important;
+}
+
+.adicional-price-note a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.adicional-price-note a:hover {
+  opacity: 0.8;
+}
+
+
+/* ============================================================
+   5. RESPONSIVO
+============================================================ */
+@media (max-width: 1024px) {
+  /* Cards de serviço: corpo passa a 1 coluna */
+  .sdc-body { grid-template-columns: 1fr; gap: 32px; }
+  /* Processo: 2 passos por linha, setas desaparecem */
+  .process-steps { flex-wrap: wrap; gap: 40px; }
+  .process-step { flex: 0 0 45%; }
+  .process-arrow { display: none; }
+  /* Serviços adicionais: cabeçalho em 1 coluna, tags desaparecem */
+  .adicional-header { grid-template-columns: 1fr; gap: 24px; }
+  .adicional-item { grid-template-columns: 44px 1px 1fr auto; gap: 24px; }
+  .adicional-item-tags { display: none; }
+}
+
+@media (max-width: 768px) {
+  .service-detail-card { padding: 32px 24px; }
+  /* Badge em mobile: sai do posicionamento absoluto */
+  .sdc-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 20px;
+    align-self: flex-start;
+  }
+  .service-detail-card.featured {
+    display: flex;
+    flex-direction: column;
+  }
+  .process-step { flex: 0 0 100%; padding: 0; }
+}
+
+@media (max-width: 640px) {
+  /* Serviços adicionais: layout mais compacto */
+  .adicional-item { grid-template-columns: 36px 1px 1fr auto; gap: 16px; padding: 20px 0; }
+  .adicional-item-trigger {
+    grid-template-columns: 36px 1px 1fr auto;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .adicional-item-num { font-size: 1.4rem; }
+  .adicional-item-main h3 { font-size: 1.1rem; }
+  .adicional-item-main p { display: none; }
+  .adicional-item-tags { display: none; }
+  /* Reduzir extensão do fundo hover em mobile */
+  .adicional-item::before { inset: 0 -16px; }
+  /* Conteúdo expansível em mobile */
+  .adicional-item-details {
+    padding: 0 0 24px 0;
+  }
+  .adicional-item-details p,
+  .adicional-item-details ul li {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}
