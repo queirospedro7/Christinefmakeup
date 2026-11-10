@@ -3,7 +3,7 @@
   z-index: 999;
   inset-inline-end: 1.5rem;
   bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-  width: min(20.5rem, calc(100% - 3rem));
+  width: min(24rem, calc(100% - 3rem));
   padding: 1.15rem 1.25rem;
   background: var(--ivory-mid);
   border: 1px solid #dfd1c0;
@@ -48,7 +48,7 @@
   .cookie-notice {
     inset-inline-end: 0.75rem;
     bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
-    width: min(20.5rem, calc(100% - 1.5rem));
+    width: min(24rem, calc(100% - 1.5rem));
     padding: 1rem;
   }
 }
