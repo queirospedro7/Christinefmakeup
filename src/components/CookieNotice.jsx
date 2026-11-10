@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/cookie-notice.css';
 
-const noticeKey = 'cf_cookie_notice_v3';
+const noticeKey = 'cf_cookie_notice_v4';
 
 export default function CookieNotice() {
   const [visible, setVisible] = useState(false);
@@ -28,11 +28,14 @@ export default function CookieNotice() {
 
   return (
     <aside className="cookie-notice" aria-labelledby="cookie-notice-title">
-      <div className="cookie-notice-copy">
+      <div>
         <h2 id="cookie-notice-title">Cookies</h2>
-        <p>Guardamos neste navegador que fechaste este aviso. Consulta a <Link to="/privacidade#cookies" onClick={dismiss}>Política de Privacidade</Link>.</p>
+        <p>Este site não usa cookies de publicidade ou análise. O teu navegador guarda apenas que fechaste este aviso.</p>
       </div>
-      <button type="button" className="btn btn-dark" onClick={dismiss}>Fechar</button>
+      <div className="cookie-notice-actions">
+        <Link to="/privacidade#cookies" onClick={dismiss}>Saber mais</Link>
+        <button type="button" className="btn btn-dark" onClick={dismiss}>Entendido</button>
+      </div>
     </aside>
   );
 }

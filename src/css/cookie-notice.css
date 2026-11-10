@@ -1,48 +1,54 @@
 .cookie-notice {
   position: fixed;
   z-index: 999;
-  inset-inline: 1.25rem;
-  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1.5rem;
-  max-width: 42rem;
-  margin-inline: auto;
-  padding: 0.9rem 1.15rem;
+  inset-inline-end: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  width: min(20.5rem, calc(100% - 3rem));
+  padding: 1.15rem 1.25rem;
   background: var(--ivory-mid);
   border: 1px solid #dfd1c0;
+  border-radius: 4px;
   box-shadow: var(--shadow-sm);
 }
 
 .cookie-notice h2 {
-  margin: 0 0 0.25rem;
-  font-size: 1.45rem;
+  margin: 0 0 0.45rem;
+  font-size: 1.65rem;
   line-height: 1;
 }
 
 .cookie-notice p {
   color: var(--text-mid);
-  font-size: 0.75rem;
-  line-height: 1.55;
+  font-size: 0.78rem;
+  line-height: 1.6;
 }
 
-.cookie-notice a {
-  color: inherit;
+.cookie-notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.cookie-notice-actions a {
+  color: var(--text-mid);
+  font-size: 0.75rem;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.cookie-notice .btn {
-  flex-shrink: 0;
+.cookie-notice-actions .btn {
   min-height: 44px;
-  padding: 0.55rem 0.85rem;
+  padding: 0.5rem 0.8rem;
 }
 
 @media (max-width: 480px) {
   .cookie-notice {
-    inset-inline: 0.75rem;
+    inset-inline-end: 0.75rem;
     bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
-    padding: 0.75rem;
+    width: min(20.5rem, calc(100% - 1.5rem));
+    padding: 1rem;
   }
 }
