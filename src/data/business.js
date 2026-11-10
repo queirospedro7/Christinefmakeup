@@ -1,3 +1,5 @@
+export const contactFormsEnabled = import.meta.env.VITE_CONTACT_FORMS === 'true';
+
 export const business = {
   name: import.meta.env.VITE_LEGAL_NAME || 'Christine Fernandes',
   brand: 'Christine Fernandes Bridal Beauty',

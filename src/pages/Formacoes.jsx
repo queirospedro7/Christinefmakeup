@@ -1,3 +1,4 @@
+import { business, contactFormsEnabled } from '../data/business';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -102,7 +103,7 @@ export default function Formacoes() {
     },
     {
       q: 'Como posso agendar ou garantir a minha vaga?',
-      a: 'Basta preencher o formulário abaixo ou enviar mensagem por WhatsApp. A vaga fica confirmada mediante o pagamento de um sinal de 30%.'
+      a: 'Envia uma mensagem por email ou WhatsApp. A vaga fica confirmada mediante o pagamento de um sinal de 30%.'
     }
   ];
 
@@ -337,7 +338,16 @@ export default function Formacoes() {
           </div>
 
           <div className="contact-form-col reveal-right">
-            {!submitted ? (
+            {!contactFormsEnabled ? (
+              <div className="contact-form">
+                <div className="form-header">
+                  <p className="eyebrow">Contacto direto</p>
+                  <h3>Envia-nos <em>uma mensagem</em></h3>
+                  <p className="form-subtitle">Conta-nos o que procuras e respondemos assim que possível.</p>
+                </div>
+                <a className="btn btn-dark" href={`mailto:${business.email}`}>Enviar email</a>
+              </div>
+            ) : !submitted ? (
               <form className="contact-form" id="formacoesForm" onSubmit={handleSubmit} noValidate>
                 <div className="form-header">
                   <p className="eyebrow">Formulário</p>

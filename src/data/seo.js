@@ -14,12 +14,12 @@ export const pages = {
   '/termos': ['Termos e Condições', 'Informação sobre pedidos, reservas, cancelamentos, reclamações e condições de utilização do site.'],
 };
 
-export function getPageMeta(pathname) {
+export function getPageMeta(pathname, indexable) {
   const path = pathname.replace(/\/+$/, '') || '/';
   const page = Object.hasOwn(pages, path) ? pages[path] : null;
   return {
     title: page ? (path === '/' ? page[0] : `${page[0]} | Christine Fernandes`) : 'Página não encontrada | Christine Fernandes',
     description: page?.[1] ?? 'A página pedida não está disponível.',
-    canonical: page ? new URL(path, siteOrigin).href : null,
+    canonical: page && indexable ? new URL(path, siteOrigin).href : null,
   };
 }

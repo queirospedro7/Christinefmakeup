@@ -1,3 +1,4 @@
+import { business, contactFormsEnabled } from '../data/business';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -93,7 +94,7 @@ export default function Contacto() {
       a: 'Respondo por email depois de confirmar a disponibilidade para a data que indicaste.'
     },
     {
-      q: 'O que acontece após o envio deste formulário?',
+      q: 'O que acontece depois de enviar o pedido?',
       a: 'Analisamos a tua data, local e necessidades e enviamos uma proposta completa. Se fizer sentido para ti, agendamos uma conversa ou o teu ensaio de noiva.'
     },
     {
@@ -172,7 +173,16 @@ export default function Contacto() {
           </div>
 
           <div className="contact-form-col reveal-right">
-            {!submitted ? (
+            {!contactFormsEnabled ? (
+              <div className="contact-form">
+                <div className="form-header">
+                  <p className="eyebrow">Contacto direto</p>
+                  <h3>Envia-nos <em>uma mensagem</em></h3>
+                  <p className="form-subtitle">Conta-nos o que procuras e respondemos assim que possível.</p>
+                </div>
+                <a className="btn btn-dark" href={`mailto:${business.email}`}>Enviar email</a>
+              </div>
+            ) : !submitted ? (
               <form className="contact-form" id="contactForm" onSubmit={handleSubmit} noValidate>
                 <div className="form-header">
                   <p className="eyebrow">Formulário</p>

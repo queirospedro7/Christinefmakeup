@@ -1,4 +1,4 @@
-import { business } from '../data/business';
+import { business, contactFormsEnabled } from '../data/business';
 
 export default function Privacidade() {
   return (
@@ -12,9 +12,9 @@ export default function Privacidade() {
         {business.address && <p>Morada para contacto: {business.address}.</p>}
 
         <h2>Dados recolhidos e finalidades</h2>
-        <p>Os formulários pedem o nome, o email, o telefone e as informações necessárias sobre o casamento ou a formação. Os campos opcionais podem incluir o perfil de Instagram, como conheceu o atelier e uma mensagem. Os campos assinalados com um asterisco são necessários para processar o pedido. Se não os preencher, pode contactar o atelier por email.</p>
+        {contactFormsEnabled ? <p>Os formulários pedem o nome, o email, o telefone e as informações necessárias sobre o casamento ou a formação. Os campos opcionais podem incluir o perfil de Instagram, como conheceu o atelier e uma mensagem. Os campos assinalados com um asterisco são necessários para processar o pedido. Se não os preencher, pode contactar o atelier por email.</p> : <p>Quando nos contacta por email ou WhatsApp, recebemos os dados de contacto e as informações que decide partilhar no pedido.</p>}
         <p>Usamos esses dados para responder a pedidos de informação, preparar orçamentos e tratar de reservas, ao abrigo de diligências pré-contratuais solicitadas pela pessoa interessada ou da execução do contrato, conforme o artigo 6.º, n.º 1, alínea b), do RGPD. A faturação e outras obrigações legais têm como fundamento a alínea c) do mesmo artigo.</p>
-        <p>O alojamento pode tratar o endereço IP e dados técnicos de acesso. O formulário usa o endereço IP temporariamente para limitar pedidos repetidos, com base no interesse legítimo de proteger o serviço, nos termos da alínea f) do mesmo artigo.</p>
+        <p>O alojamento pode tratar o endereço IP e dados técnicos de acesso.{contactFormsEnabled && ' O formulário usa o endereço IP temporariamente para limitar pedidos repetidos, com base no interesse legítimo de proteger o serviço, nos termos da alínea f) do mesmo artigo.'}</p>
 
         <h2>Destinatários e transferências</h2>
         <p>Os pedidos são acessíveis à equipa responsável pelo atendimento e passam pelos prestadores de alojamento e de correio eletrónico, necessários ao funcionamento do serviço. Podem também ser comunicados às autoridades quando exista uma obrigação legal.</p>
@@ -23,7 +23,7 @@ export default function Privacidade() {
 
         <h2>Conservação</h2>
         <p>Os pedidos são conservados enquanto forem necessários para responder e acompanhar a proposta ou a reserva. Quando existe contratação, os dados necessários são conservados durante a prestação do serviço e pelos prazos legais de faturação ou de defesa de direitos que forem aplicáveis.</p>
-        <p>O contador técnico de pedidos tem uma janela de 15 minutos. Os formulários não guardam cópias dos pedidos no navegador.</p>
+        {contactFormsEnabled && <p>O contador técnico de pedidos tem uma janela de 15 minutos. Os formulários não guardam cópias dos pedidos no navegador.</p>}
 
         <h2>Direitos</h2>
         <p>Pode pedir acesso, retificação, apagamento, limitação ou portabilidade dos dados, nos casos previstos no RGPD. Pode também opor-se ao tratamento baseado em interesse legítimo. Para exercer estes direitos, escreva para <a href={`mailto:${business.email}`}>{business.email}</a>. Pode apresentar reclamação à <a href="https://www.cnpd.pt/">Comissão Nacional de Proteção de Dados</a>.</p>

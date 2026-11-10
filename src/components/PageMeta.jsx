@@ -16,7 +16,7 @@ function updateTag(selector, attribute, value, create) {
 export default function PageMeta() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const { title, description, canonical } = getPageMeta(pathname);
+    const { title, description, canonical } = getPageMeta(pathname, import.meta.env.VITE_SITE_INDEXABLE === 'true');
     document.title = title;
     const setMeta = (key, value, attribute = 'name') => {
       updateTag(`meta[${attribute}="${key}"]`, 'content', value, () => {
